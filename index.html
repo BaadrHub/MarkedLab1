@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--link element-->
+    <div id="app"> 
+        <header>
+            <h1 v-text="name"></h1>
+
+        </header>
+
+        <p><img v-bind:src="product.image"></p>
+        <h2 v-text="product.title"></h2>
+
+        <p v-html="product.description"></p>
+
+        <p>Price: {{product.price}}</p>
+        <h3>Number of Spaces: {{ counter }}</h3>
+
+        <!--event handling with V on-->
+        <button type="button" v-on:click="decrease">Add to Cart</button>
+
+    </div>
+
+
+    <script>
+
+        //Create Vue Object
+        let lesson = new Vue({
+            el: '#app',
+            data: {
+                counter: 5,
+                name: 'After School Club',
+                product: {
+                    id: 1001,
+                    title: "Maths",
+                    description: "London",
+                    price: "£" + 500 + " per lesson",
+                    image: "123.jpg",
+                },
+    
+            },
+
+            methods: {
+                decrease() {
+                    if (this.counter > 0) {
+                        this.counter--;
+                    }
+                },
+
+            },
+
+        })
+
+    </script>
+
+
+</body>
+
+</html>
